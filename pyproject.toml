@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "computational-physics-project"
+version = "1.0"
+description = ""
+authors = ["gayatri-p <gaya3p13@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyter-book = "^1.0.3"
+ipykernel = "^6.29.5"
+pandas = "^2.2.3"
+ghp-import = "^2.1.0"
+scipy = "^1.14.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
