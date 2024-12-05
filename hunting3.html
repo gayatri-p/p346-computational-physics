@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Simulation &#8212; Computational Physics Project</title>
+    <title>Modelling Population Diffusion in a Rough Terrain &#8212; Computational Physics Project</title>
   
   
   
@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'hunting3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Theory" href="hunting2.html" />
+    <link rel="prev" title="Modelling Population Diffusion" href="hunting2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -136,7 +136,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="home.html">
   
   
   
@@ -163,39 +163,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Detection in Images</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="edge.html">RGB to Grayscale Conversion</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dam Integration</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="dams.html">Visualizing the data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="dams.html">Dam Integration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Finding Line Strengths from Galaxy Spectra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Galaxy NGC1275</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heating Adobe Houses</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="heating.html">Defining the problem</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hunting and Diffusion</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting and Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Theory</a></li>
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Simulation</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -239,7 +226,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+<a href="https://github.com/gayatri-p/p346-computational-physics" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -341,7 +328,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Simulation</h1>
+    <h1>Modelling Population Diffusion in a Rough Terrain</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -351,19 +338,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-population-snapshots-and-population-size-over-time-for-each-terrain">Get population snapshots and population size over time for each terrain</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation">Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-for-each-terrain">Simulation for each Terrain</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-1">Terrain 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-2">Terrain 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-3">Terrain 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-4">Terrain 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-snapshots">Population Snapshots</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-plots">Final Plots</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -374,7 +358,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section id="modelling-population-diffusion-in-a-rough-terrain">
+<h1>Modelling Population Diffusion in a Rough Terrain<a class="headerlink" href="#modelling-population-diffusion-in-a-rough-terrain" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -414,8 +400,8 @@ T(x,y-dx)[u(x,y-dx)-u(x,y)]+T(x,y+dx)[u(x,y+dx)-u(x,y)]\right\}
 \Bigl. + T_{i,j-1}[u_{i,j-1}-u_{i,j}]+T_{i,j+1}[u_{i,j+1}-u_{i,j}]\Bigl\}\\
 \text{thus, }u_{i,j}^{(t+1)} = u_{i,j}^{(t)} + \Delta t\left[(r-h)u_{i,j}^{(t)} - \frac{r(u_{i,j}^{(t)})^2}{K} + \nabla \cdot (T\,\nabla u)|_{i,j}^{(t)}\right]
 \end{split}\]</div>
-<section class="tex2jax_ignore mathjax_ignore" id="simulation">
-<h1>Simulation<a class="headerlink" href="#simulation" title="Link to this heading">#</a></h1>
+<section id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Link to this heading">#</a></h2>
 <p>Initialise space grid with random spawns</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -606,8 +592,9 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 </div>
-<section id="get-population-snapshots-and-population-size-over-time-for-each-terrain">
-<h2>Get population snapshots and population size over time for each terrain<a class="headerlink" href="#get-population-snapshots-and-population-size-over-time-for-each-terrain" title="Link to this heading">#</a></h2>
+</section>
+<section id="simulation-for-each-terrain">
+<h2>Simulation for each Terrain<a class="headerlink" href="#simulation-for-each-terrain" title="Link to this heading">#</a></h2>
 <section id="terrain-1">
 <h3>Terrain 1<a class="headerlink" href="#terrain-1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -23822,9 +23809,8 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTUuMTAw
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="final-plots">
-<h1>Final Plots<a class="headerlink" href="#final-plots" title="Link to this heading">#</a></h1>
+<section id="population-snapshots">
+<h2>Population Snapshots<a class="headerlink" href="#population-snapshots" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compare_sizes</span> <span class="o">=</span> <span class="p">{}</span> 
@@ -23982,6 +23968,7 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTUuMTAw
 <img alt="_images/4b86ba4b90fe79ad08f909093dd9968be35281e6e90857f49726529ce19866dc.png" src="_images/4b86ba4b90fe79ad08f909093dd9968be35281e6e90857f49726529ce19866dc.png" />
 </div>
 </div>
+<p>Average Population density over time for each terrain</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">{</span>
@@ -24005,6 +23992,7 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTUuMTAw
 <img alt="_images/4c3c518f6c8ea884854c884eeea5637fc9dbdb9bbd14a82efa49ad16478e6a78.png" src="_images/4c3c518f6c8ea884854c884eeea5637fc9dbdb9bbd14a82efa49ad16478e6a78.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -24043,7 +24031,7 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTUuMTAw
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Theory</p>
+        <p class="prev-next-title">Modelling Population Diffusion</p>
       </div>
     </a>
 </div>
@@ -24063,19 +24051,16 @@ cHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNjAuMTUuMTAw
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Simulation</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-population-snapshots-and-population-size-over-time-for-each-terrain">Get population snapshots and population size over time for each terrain</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation">Simulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-for-each-terrain">Simulation for each Terrain</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-1">Terrain 1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-2">Terrain 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-3">Terrain 3</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#terrain-4">Terrain 4</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#population-snapshots">Population Snapshots</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#final-plots">Final Plots</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
@@ -24099,7 +24084,7 @@ By gayatri
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

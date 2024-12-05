@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Defining the problem &#8212; Computational Physics Project</title>
+    <title>Heating Adobe Houses &#8212; Computational Physics Project</title>
   
   
   
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'heating';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hunting" href="hunting.html" />
-    <link rel="prev" title="Galaxy NGC1275" href="galaxy.html" />
+    <link rel="next" title="Hunting and Diffusion" href="hunting.html" />
+    <link rel="prev" title="Finding Line Strengths from Galaxy Spectra" href="galaxy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="home.html">
   
   
   
@@ -164,39 +164,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Detection in Images</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="edge.html">RGB to Grayscale Conversion</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dam Integration</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="dams.html">Visualizing the data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="dams.html">Dam Integration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Finding Line Strengths from Galaxy Spectra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Galaxy NGC1275</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heating Adobe Houses</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Defining the problem</a></li>
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Heating Adobe Houses</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hunting and Diffusion</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting and Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Theory</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Simulation</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -240,7 +227,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+<a href="https://github.com/gayatri-p/p346-computational-physics" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -342,7 +329,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Defining the problem</h1>
+    <h1>Heating Adobe Houses</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,11 +339,10 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Defining the problem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-heat-equation">Solving the heat equation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-t-vs-thickness"><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-problem">Defining the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-heat-equation">Solving the heat equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-t-vs-thickness"><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -367,7 +353,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="heating-adobe-houses">
+<h1>Heating Adobe Houses<a class="headerlink" href="#heating-adobe-houses" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -398,7 +386,7 @@
 </div>
 </div>
 <section id="defining-the-problem">
-<h1>Defining the problem<a class="headerlink" href="#defining-the-problem" title="Link to this heading">#</a></h1>
+<h2>Defining the problem<a class="headerlink" href="#defining-the-problem" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.27</span>
@@ -415,7 +403,7 @@
 </div>
 </section>
 <section id="solving-the-heat-equation">
-<h1>Solving the heat equation<a class="headerlink" href="#solving-the-heat-equation" title="Link to this heading">#</a></h1>
+<h2>Solving the heat equation<a class="headerlink" href="#solving-the-heat-equation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="s2">&quot;(f8[:],f8,f8,f8)&quot;</span><span class="p">,</span> <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -631,7 +619,7 @@ Temperature variation: 21.57 to 26.34 Celsius (4.76)
 </div>
 </section>
 <section id="delta-t-vs-thickness">
-<h1><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness<a class="headerlink" href="#delta-t-vs-thickness" title="Link to this heading">#</a></h1>
+<h2><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness<a class="headerlink" href="#delta-t-vs-thickness" title="Link to this heading">#</a></h2>
 <p>As we can see that the temperature variations around 200 mm get close to the human comfort range. Let us now plot <span class="math notranslate nohighlight">\(\Delta T\)</span> vs thickness.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,6 +720,7 @@ For t = 290 mm:
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -769,7 +758,7 @@ For t = 290 mm:
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Galaxy NGC1275</p>
+        <p class="prev-next-title">Finding Line Strengths from Galaxy Spectra</p>
       </div>
     </a>
     <a class="right-next"
@@ -777,7 +766,7 @@ For t = 290 mm:
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hunting</p>
+        <p class="prev-next-title">Hunting and Diffusion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -798,11 +787,10 @@ For t = 290 mm:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Defining the problem</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-heat-equation">Solving the heat equation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-t-vs-thickness"><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-problem">Defining the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-heat-equation">Solving the heat equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delta-t-vs-thickness"><span class="math notranslate nohighlight">\(\Delta T\)</span> vs Thickness</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -826,7 +814,7 @@ By gayatri
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

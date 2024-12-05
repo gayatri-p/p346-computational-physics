@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Theory &#8212; Computational Physics Project</title>
+    <title>Modelling Population Diffusion &#8212; Computational Physics Project</title>
   
   
   
@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'hunting2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Simulation" href="hunting3.html" />
+    <link rel="next" title="Modelling Population Diffusion in a Rough Terrain" href="hunting3.html" />
     <link rel="prev" title="Modelling population size" href="hunting1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="home.html">
   
   
   
@@ -164,39 +164,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Detection in Images</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="edge.html">RGB to Grayscale Conversion</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dam Integration</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="dams.html">Visualizing the data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="dams.html">Dam Integration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Finding Line Strengths from Galaxy Spectra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Galaxy NGC1275</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heating Adobe Houses</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="heating.html">Defining the problem</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hunting and Diffusion</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting and Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Theory</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Simulation</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -240,7 +227,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+<a href="https://github.com/gayatri-p/p346-computational-physics" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -342,7 +329,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Theory</h1>
+    <h1>Modelling Population Diffusion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -352,14 +339,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-pde">Solving the PDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-diffusion">Plotting Diffusion</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">Plotting functions</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -370,7 +354,9 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section id="modelling-population-diffusion">
+<h1>Modelling Population Diffusion<a class="headerlink" href="#modelling-population-diffusion" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -384,20 +370,22 @@
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="theory">
-<h1>Theory<a class="headerlink" href="#theory" title="Link to this heading">#</a></h1>
-<p>The hunting and diffusion equation is given by,
-$<span class="math notranslate nohighlight">\(ru\left(1-\frac{u}{K}\right) - hu + D\nabla^2 u = \frac{\partial u}{\partial t}\)</span>$</p>
-<p>Using finite difference method,
-$<span class="math notranslate nohighlight">\(ru_{i,j}^{(t)} \left(1 - \frac{u_{i,j}^{(t)}}{K} \right) - hu_{i,j}^{(t)} + D \left( \frac{u_{i+1,j}^{(t)} -2u_{i,j}^{(t)} + u_{i-1,j}^{(t)}}{\Delta x^2} + \frac{u_{i,j+1}^{(t)} -2u_{i,j}^{(t)} + u_{i,j-1}^{(t)}}{\Delta y^2}\right) = \frac{u_j^{(t+1)} - u_j^{(t)}}{\Delta t} \)</span>$</p>
+<section id="theory">
+<h2>Theory<a class="headerlink" href="#theory" title="Link to this heading">#</a></h2>
+<p>The hunting and diffusion equation is given by,</p>
+<div class="math notranslate nohighlight">
+\[ru\left(1-\frac{u}{K}\right) - hu + D\nabla^2 u = \frac{\partial u}{\partial t}\]</div>
+<p>Using finite difference method,</p>
+<div class="math notranslate nohighlight">
+\[ru_{i,j}^{(t)} \left(1 - \frac{u_{i,j}^{(t)}}{K} \right) - hu_{i,j}^{(t)} + D \left( \frac{u_{i+1,j}^{(t)} -2u_{i,j}^{(t)} + u_{i-1,j}^{(t)}}{\Delta x^2} + \frac{u_{i,j+1}^{(t)} -2u_{i,j}^{(t)} + u_{i,j-1}^{(t)}}{\Delta y^2}\right) = \frac{u_j^{(t+1)} - u_j^{(t)}}{\Delta t} \]</div>
 <div class="math notranslate nohighlight">
 \[(r-h)u_{i,j}^{(t)} - \frac{r(u_{i,j}^{(t)})^2}{K} + D \left( \frac{u_{i+1,j}^{(t)} -2u_{i,j}^{(t)} + u_{i-1,j}^{(t)}}{\Delta x^2} + \frac{u_{i,j+1}^{(t)} -2u_{i,j}^{(t)} + u_{i,j-1}^{(t)}}{\Delta y^2}\right) = \frac{u_j^{(t+1)} - u_j^{(t)}}{\Delta t} \]</div>
 <p>Can rearrange to solve for <span class="math notranslate nohighlight">\(m+1\)</span></p>
 <div class="math notranslate nohighlight">
 \[ u_j^{(t+1)} = u_j^{(t)} + \Delta t\left[(r-h)u_{i,j}^{(t)} - \frac{r(u_{i,j}^{(t)})^2}{K} + \frac{D}{\Delta x^2} \left( u_{i+1,j}^{(t)} + u_{i-1,j}^{(t)} +  u_{i,j+1}^{(t)} + u_{i,j-1}^{(t)}  -4u_{i,j}^{(t)} \right)\right] \]</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="implementation">
-<h1>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h1>
+<section id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Link to this heading">#</a></h2>
 <p>Initialise space grid with random spawns</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -489,6 +477,7 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 </div>
+</section>
 <section id="solving-the-pde">
 <h2>Solving the PDE<a class="headerlink" href="#solving-the-pde" title="Link to this heading">#</a></h2>
 <p>Set up numba function</p>
@@ -548,24 +537,6 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 <p>Get population snapshots and population size over time plot</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span>
-<span class="n">population_frames</span><span class="p">,</span> <span class="n">population_sizes</span> <span class="o">=</span> <span class="n">solve_pde</span><span class="p">(</span><span class="n">population_frames</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">times</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">times</span><span class="p">),</span> <span class="n">population_sizes</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Total Population&#39;</span><span class="p">)</span>
-<span class="n">population_sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73.42334149631543
-</pre></div>
-</div>
-<img alt="_images/27f779315e46cf885ae8f3c6753ca863bd1020d1229582d57c96f7afbc6fbb4f.png" src="_images/27f779315e46cf885ae8f3c6753ca863bd1020d1229582d57c96f7afbc6fbb4f.png" />
-</div>
-</div>
 <p>The final snapshot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,9 +601,8 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="plotting-functions">
-<h1>Plotting functions<a class="headerlink" href="#plotting-functions" title="Link to this heading">#</a></h1>
+<section id="plotting-diffusion">
+<h2>Plotting Diffusion<a class="headerlink" href="#plotting-diffusion" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">compare_sizes</span> <span class="o">=</span> <span class="p">{}</span> 
@@ -712,6 +682,7 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -757,7 +728,7 @@ Snapshot taken every 0.007 sec.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Simulation</p>
+        <p class="prev-next-title">Modelling Population Diffusion in a Rough Terrain</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -778,14 +749,11 @@ Snapshot taken every 0.007 sec.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Theory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-pde">Solving the PDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-diffusion">Plotting Diffusion</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-functions">Plotting functions</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
@@ -809,7 +777,7 @@ By gayatri
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

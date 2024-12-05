@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'hunting1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Theory" href="hunting2.html" />
-    <link rel="prev" title="Hunting" href="hunting.html" />
+    <link rel="next" title="Modelling Population Diffusion" href="hunting2.html" />
+    <link rel="prev" title="Hunting and Diffusion" href="hunting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -137,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="intro.html">
+<a class="navbar-brand logo" href="home.html">
   
   
   
@@ -164,39 +164,26 @@
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Detection in Images</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="edge.html">RGB to Grayscale Conversion</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Dam Integration</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="dams.html">Visualizing the data</a></li>
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="dams.html">Dam Integration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Finding Line Strengths from Galaxy Spectra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Galaxy NGC1275</a></li>
+<li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Heating Adobe Houses</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="heating.html">Defining the problem</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Hunting and Diffusion</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting and Diffusion</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling population size</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Theory</a></li>
-
-
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Simulation</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -240,7 +227,7 @@
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+<a href="https://github.com/gayatri-p/p346-computational-physics" target="_blank"
    class="btn btn-sm btn-source-repository-button"
    title="Source repository"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -352,20 +339,16 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling population size</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-simulation">Setting up the simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-frac-du-dt">Define <span class="math notranslate nohighlight">\(\frac{du}{dt}\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-methods">Comparing different methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-hunting-rate-h">Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-growth-rate-r">Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-carrying-capacity-k">Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-hunting-rate-h">Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-growth-rate-r">Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-carrying-capacity-k">Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span></a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -384,7 +367,7 @@
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="modelling-population-size">
+<section id="modelling-population-size">
 <h1>Modelling population size<a class="headerlink" href="#modelling-population-size" title="Link to this heading">#</a></h1>
 <p>Let <span class="math notranslate nohighlight">\(u\)</span> be a function modeling a mobile population living in an environment with a growth rate of <span class="math notranslate nohighlight">\(r\)</span>% per year with a carrying capacity of <span class="math notranslate nohighlight">\(K\)</span>. The typical equation that governs the size of the population is,</p>
 <div class="math notranslate nohighlight">
@@ -498,11 +481,10 @@
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="solutions">
-<h1>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h1>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
 <section id="variation-of-hunting-rate-h">
-<h2>Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span><a class="headerlink" href="#variation-of-hunting-rate-h" title="Link to this heading">#</a></h2>
+<h3>Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span><a class="headerlink" href="#variation-of-hunting-rate-h" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -538,7 +520,7 @@
 </div>
 </section>
 <section id="variation-of-growth-rate-r">
-<h2>Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#variation-of-growth-rate-r" title="Link to this heading">#</a></h2>
+<h3>Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span><a class="headerlink" href="#variation-of-growth-rate-r" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -576,7 +558,7 @@
 </div>
 </section>
 <section id="variation-of-carrying-capacity-k">
-<h2>Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span><a class="headerlink" href="#variation-of-carrying-capacity-k" title="Link to this heading">#</a></h2>
+<h3>Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span><a class="headerlink" href="#variation-of-carrying-capacity-k" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -610,6 +592,7 @@
 <img alt="_images/a7eb61ee6fd48d4e0c059f302f0bb4b163f6b4f7dadd8fa9b5d587126c86b0dc.png" src="_images/a7eb61ee6fd48d4e0c059f302f0bb4b163f6b4f7dadd8fa9b5d587126c86b0dc.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
@@ -649,7 +632,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Hunting</p>
+        <p class="prev-next-title">Hunting and Diffusion</p>
       </div>
     </a>
     <a class="right-next"
@@ -657,7 +640,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Theory</p>
+        <p class="prev-next-title">Modelling Population Diffusion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -678,20 +661,16 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Modelling population size</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-the-simulation">Setting up the simulation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-frac-du-dt">Define <span class="math notranslate nohighlight">\(\frac{du}{dt}\)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-different-methods">Comparing different methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-hunting-rate-h">Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-growth-rate-r">Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-carrying-capacity-k">Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-hunting-rate-h">Variation of hunting rate, <span class="math notranslate nohighlight">\(h\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-growth-rate-r">Variation of growth rate, <span class="math notranslate nohighlight">\(r\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variation-of-carrying-capacity-k">Variation of carrying capacity, <span class="math notranslate nohighlight">\(K\)</span></a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
@@ -715,7 +694,7 @@ By gayatri
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
