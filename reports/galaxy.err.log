@@ -25,11 +25,12 @@ from specutils.spectra import Spectrum1D
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 2[0m
+Cell [1;32mIn[1], line 3[0m
 [0;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[0;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mastropy[39;00m [38;5;28;01mimport[39;00m units [38;5;28;01mas[39;00m u
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mastropy[39;00m [38;5;28;01mimport[39;00m units [38;5;28;01mas[39;00m u
 [0;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mspecutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mfitting[39;00m [38;5;28;01mimport[39;00m fit_generic_continuum
+[0;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mspecutils[39;00m[38;5;21;01m.[39;00m[38;5;21;01mspectra[39;00m [38;5;28;01mimport[39;00m Spectrum1D
 
-[1;31mModuleNotFoundError[0m: No module named 'matplotlib'
+[1;31mModuleNotFoundError[0m: No module named 'astropy'
 

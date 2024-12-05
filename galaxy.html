@@ -162,25 +162,24 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Detection in Images</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dam Integration</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.3</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="dams.html">Dam Integration</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Finding Line Strengths from Galaxy Spectra</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.1</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Finding Line Strengths from Galaxy Spectra</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Heating Adobe Houses</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hunting and Diffusion</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting.html">Hunting and Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
@@ -339,14 +338,12 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galaxy-ngc1275">Galaxy NGC1275</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-data">Visualising Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-fitting">Continuum Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-peaks">Finding peaks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-fitting-the-emission-lines">Gaussian fitting the emission lines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-with-literature-data">Matching with Literature Data</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-data-for-galaxy-ngc1275">Visualising Data for galaxy NGC1275</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-fitting">Continuum Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-median-filter">Applying Median Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-peaks">Finding peaks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-fitting-the-emission-lines">Gaussian fitting the emission lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-with-literature-data">Matching with Literature Data</a></li>
 </ul>
             </nav>
         </div>
@@ -382,10 +379,8 @@
 </div>
 </div>
 </div>
-<section id="galaxy-ngc1275">
-<h2>Galaxy NGC1275<a class="headerlink" href="#galaxy-ngc1275" title="Link to this heading">#</a></h2>
-<section id="visualising-data">
-<h3>Visualising Data<a class="headerlink" href="#visualising-data" title="Link to this heading">#</a></h3>
+<section id="visualising-data-for-galaxy-ngc1275">
+<h2>Visualising Data for galaxy NGC1275<a class="headerlink" href="#visualising-data-for-galaxy-ngc1275" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.017670</span> <span class="c1"># redshift</span>
@@ -409,7 +404,7 @@
 </div>
 </section>
 <section id="continuum-fitting">
-<h3>Continuum Fitting<a class="headerlink" href="#continuum-fitting" title="Link to this heading">#</a></h3>
+<h2>Continuum Fitting<a class="headerlink" href="#continuum-fitting" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Least square straight line fit</span>
@@ -480,7 +475,9 @@
 <img alt="_images/5c9c364598fe3d9836bfa5ac34e65081435b3d3a22266441c1eabe1ec0187bab.png" src="_images/5c9c364598fe3d9836bfa5ac34e65081435b3d3a22266441c1eabe1ec0187bab.png" />
 </div>
 </div>
-<p>Applying Median Filter</p>
+</section>
+<section id="applying-median-filter">
+<h2>Applying Median Filter<a class="headerlink" href="#applying-median-filter" title="Link to this heading">#</a></h2>
 <p>For kernel = 1,
 $<span class="math notranslate nohighlight">\(
 f[i] = \text{median}(f[i-1],f[i],f[i+1])
@@ -503,7 +500,7 @@ f[i] = \text{median}(f[i-1],f[i],f[i+1])
 </div>
 </section>
 <section id="finding-peaks">
-<h3>Finding peaks<a class="headerlink" href="#finding-peaks" title="Link to this heading">#</a></h3>
+<h2>Finding peaks<a class="headerlink" href="#finding-peaks" title="Link to this heading">#</a></h2>
 <p>Function to find derivatives</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -572,7 +569,7 @@ f[i] = \text{median}(f[i-1],f[i],f[i+1])
 </div>
 </section>
 <section id="gaussian-fitting-the-emission-lines">
-<h3>Gaussian fitting the emission lines<a class="headerlink" href="#gaussian-fitting-the-emission-lines" title="Link to this heading">#</a></h3>
+<h2>Gaussian fitting the emission lines<a class="headerlink" href="#gaussian-fitting-the-emission-lines" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -713,7 +710,7 @@ Area under fit2: 2.8443785123386705
 </div>
 </section>
 <section id="matching-with-literature-data">
-<h3>Matching with Literature Data<a class="headerlink" href="#matching-with-literature-data" title="Link to this heading">#</a></h3>
+<h2>Matching with Literature Data<a class="headerlink" href="#matching-with-literature-data" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://astronomy.nmsu.edu/drewski/tableofemissionlines.html">http://astronomy.nmsu.edu/drewski/tableofemissionlines.html</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,7 +762,6 @@ f = 456.66 THz (6564.9 AA), possibly due to Hα (6562.819 AA)
 <img alt="_images/053e6cf1ba8830b89419c3451a8c041466f816bf88d0c0fad98584df5deec9dc.png" src="_images/053e6cf1ba8830b89419c3451a8c041466f816bf88d0c0fad98584df5deec9dc.png" />
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -834,14 +830,12 @@ f = 456.66 THz (6564.9 AA), possibly due to Hα (6562.819 AA)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#galaxy-ngc1275">Galaxy NGC1275</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-data">Visualising Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-fitting">Continuum Fitting</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-peaks">Finding peaks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-fitting-the-emission-lines">Gaussian fitting the emission lines</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-with-literature-data">Matching with Literature Data</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualising-data-for-galaxy-ngc1275">Visualising Data for galaxy NGC1275</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuum-fitting">Continuum Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-median-filter">Applying Median Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-peaks">Finding peaks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-fitting-the-emission-lines">Gaussian fitting the emission lines</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-with-literature-data">Matching with Literature Data</a></li>
 </ul>
   </nav></div>
 

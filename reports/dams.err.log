@@ -15,23 +15,59 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-import matplotlib.pyplot as plt
-from datetime import datetime
-import scipy.integrate as sp
-from scipy.interpolate import interp1d
-import numdifftools as nd
-from findiff import FinDiff
+half_step = dx/2
+
+def d2dt(y,h=1):
+    diffs = np.zeros(len(y))
+    for x in range(2, len(y)-2):
+        diffs[x] = (y[x+1]+y[x-1]-2*y[x])/(h**2)
+    return diffs
+
+def mid_point_integration(x, y):
+    half_step = (x[1]-x[0])/2
+    res = 0
+    res += y[0]*half_step
+    for i in range(1,len(x)-1):
+        res += y[i]*half_step*2
+    res += y[-1]*half_step
+
+    f2epsilon = np.max(abs(d2dt(y)))
+    max_error_mid_point = ((x[-1]-x[0]) * f2epsilon * dx**2)/(24)
+    return res, max_error_mid_point
+
+plt.vlines(t1[0], ymax=f1[0], ymin=0, color='r')
+plt.hlines(f1[0], xmin=t1[0], xmax=t1[0]+half_step, color='r')
+for i in range(1,len(t1)-1):
+    plt.vlines(t1[i]-half_step, ymax=f1[i], ymin=0, color='r')
+    plt.vlines(t1[i]+half_step, ymax=f1[i], ymin=0, color='r')
+    plt.hlines(f1[i], xmin=t1[i]-half_step, xmax=t1[i]+half_step, color='r')
+
+plt.vlines(t1[-1]-half_step, ymax=f1[-1], ymin=0, color='r')
+
+plt.vlines(t1[-1], ymax=f1[-1]-half_step, ymin=0, color='r', label='Mid-point implementation')
+plt.vlines(t1[-1], ymax=f1[-1], ymin=0, color='r')
+plt.hlines(f1[-1], xmin=t1[-1], xmax=t1[-1]-half_step, color='r')
+plt.plot(t1, f1, 'kx', alpha=1, label='Data points')
+
+plt.legend()
+plt.xlabel('Time')
+plt.ylim(0,3100)
+plt.ylabel('Flow Rate (ft$^3$ s$^{-1}$)')
+mid_point, max_error_mid_point = mid_point_integration(t1, f1, dx)
+plt.title(f'Total area: {mid_point:.3f}' + r' $\pm$ ' + f'{max_error_mid_point:.3f}')
+plt.tight_layout()
+plt.savefig('plots/2/mid-point.png', dpi=200)
 ------------------
 
 
 [1;31m---------------------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [1;32mIn[1], line 2[0m
-[0;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
-[1;32m----> 2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[0;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mdatetime[39;00m [38;5;28;01mimport[39;00m datetime
-[0;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mintegrate[39;00m [38;5;28;01mas[39;00m [38;5;21;01msp[39;00m
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[6], line 39[0m
+[0;32m     37[0m plt[38;5;241m.[39mylim([38;5;241m0[39m,[38;5;241m3100[39m)
+[0;32m     38[0m plt[38;5;241m.[39mylabel([38;5;124m'[39m[38;5;124mFlow Rate (ft$^3$ s$^[39m[38;5;124m{[39m[38;5;124m-1}$)[39m[38;5;124m'[39m)
+[1;32m---> 39[0m mid_point, max_error_mid_point [38;5;241m=[39m [43mmid_point_integration[49m[43m([49m[43mt1[49m[43m,[49m[43m [49m[43mf1[49m[43m,[49m[43m [49m[43mdx[49m[43m)[49m
+[0;32m     40[0m plt[38;5;241m.[39mtitle([38;5;124mf[39m[38;5;124m'[39m[38;5;124mTotal area: [39m[38;5;132;01m{[39;00mmid_point[38;5;132;01m:[39;00m[38;5;124m.3f[39m[38;5;132;01m}[39;00m[38;5;124m'[39m [38;5;241m+[39m [38;5;124mr[39m[38;5;124m'[39m[38;5;124m $[39m[38;5;124m\[39m[38;5;124mpm$ [39m[38;5;124m'[39m [38;5;241m+[39m [38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mmax_error_mid_point[38;5;132;01m:[39;00m[38;5;124m.3f[39m[38;5;132;01m}[39;00m[38;5;124m'[39m)
+[0;32m     41[0m plt[38;5;241m.[39mtight_layout()
 
-[1;31mModuleNotFoundError[0m: No module named 'matplotlib'
+[1;31mTypeError[0m: mid_point_integration() takes 2 positional arguments but 3 were given
 
