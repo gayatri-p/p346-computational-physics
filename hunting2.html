@@ -162,7 +162,17 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
@@ -173,16 +183,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.1</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Modelling Population Diffusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -341,6 +341,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-pde">Solving the PDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulational-animations">Simulational Animations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-diffusion">Plotting Diffusion</a></li>
 </ul>
             </nav>
@@ -600,6 +601,60 @@ Snapshot taken every 0.007 sec.
 </div>
 </div>
 </section>
+<section id="simulational-animations">
+<h2>Simulational Animations<a class="headerlink" href="#simulational-animations" title="Link to this heading">#</a></h2>
+<p>Neumann BC <span class="math notranslate nohighlight">\((r = 0.9, h=0)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;plots/5/5b/population_neumannr0.gif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="plots/5/5b/population_neumannr0.gif"/></div></div>
+</div>
+<p>Neumann BC <span class="math notranslate nohighlight">\((r = 0.9, h=0.5)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;plots/5/5b/population_neumannr5.gif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="plots/5/5b/population_neumannr5.gif"/></div></div>
+</div>
+<p>Neumann BC <span class="math notranslate nohighlight">\((r = 0.9, h=0.9)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;plots/5/5b/population_neumannr9.gif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="plots/5/5b/population_neumannr9.gif"/></div></div>
+</div>
+<p>Neumann BC <span class="math notranslate nohighlight">\((r = 0.9, h=0.2)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;plots/5/5b/population1_neumann.gif&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="plots/5/5b/population1_neumann.gif"/></div></div>
+</div>
+<p>Dirichlet BC <span class="math notranslate nohighlight">\((r = 0.9, h=0.2)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;plots/5/5b/population_dirc.gif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="plots/5/5b/population_dirc.gif"/></div></div>
+</div>
+</section>
 <section id="plotting-diffusion">
 <h2>Plotting Diffusion<a class="headerlink" href="#plotting-diffusion" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -751,6 +806,7 @@ Snapshot taken every 0.007 sec.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-pde">Solving the PDE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulational-animations">Simulational Animations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-diffusion">Plotting Diffusion</a></li>
 </ul>
   </nav></div>

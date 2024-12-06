@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'heating';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Modelling population size" href="hunting1.html" />
-    <link rel="prev" title="Finding Line Strengths from Galaxy Spectra" href="galaxy.html" />
+    <link rel="next" title="Edge Detection in Images" href="edge.html" />
+    <link rel="prev" title="Modelling Population Diffusion in a Rough Terrain" href="hunting3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -162,7 +162,17 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Heating Adobe Houses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="edge.html">Edge Detection in Images</a></li>
 </ul>
@@ -173,16 +183,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.1</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Heating Adobe Houses</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -354,6 +354,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="heating-adobe-houses">
 <h1>Heating Adobe Houses<a class="headerlink" href="#heating-adobe-houses" title="Link to this heading">#</a></h1>
+<p>The thicker the adobe walls are, the better, as it will maintain a nearly constant inside temperature. However, it would also be more expensive to build. Here, we try to model the heat flow through adobe walls using the heat equation to find the optimum wall thickness.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -372,6 +373,7 @@
 </div>
 </div>
 </div>
+<p>Here, we have use synthetic data to approximate the typical diurnal temperature variation in these climatic regions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@numba</span><span class="o">.</span><span class="n">jit</span><span class="p">(</span><span class="s2">&quot;f8(f8)&quot;</span><span class="p">,</span> <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -708,9 +710,9 @@ For t = 290 mm:
 <span class="n">variations</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">variations</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">variations</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">variations</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="s1">&#39;-ko&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta T$ ($^\circ$C)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Thickness (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Thickness (mm)&#39;</span><span class="p">)</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;plots/4/var_fin.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;plots/4/var_fin.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -752,20 +754,20 @@ For t = 290 mm:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="galaxy.html"
+       href="hunting3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Finding Line Strengths from Galaxy Spectra</p>
+        <p class="prev-next-title">Modelling Population Diffusion in a Rough Terrain</p>
       </div>
     </a>
     <a class="right-next"
-       href="hunting1.html"
+       href="edge.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Modelling population size</p>
+        <p class="prev-next-title">Edge Detection in Images</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

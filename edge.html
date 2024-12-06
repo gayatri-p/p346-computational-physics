@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Dam Integration" href="dams.html" />
-    <link rel="prev" title="Applications of Numerical Calculus in Multidisciplinary Problems" href="home.html" />
+    <link rel="prev" title="Heating Adobe Houses" href="heating.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -162,7 +162,17 @@
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.4</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Edge Detection in Images</a></li>
 </ul>
@@ -173,16 +183,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 3.8.1</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="galaxy.html">Finding Line Strengths from Galaxy Spectra</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.2</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating Adobe Houses</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project 6.10.1</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hunting1.html">Modelling population size</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunting2.html">Modelling Population Diffusion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hunting3.html">Modelling Population Diffusion in a Rough Terrain</a></li>
 </ul>
 
     </div>
@@ -372,12 +372,14 @@
 </div>
 </div>
 </div>
+<p>Edges in images are discontinuities in intensity. They usually represent the boundaries of objects or lighting present in the image. It is one of the first steps in object detection models. Here, we will attempt to build an algorithm that can detect edges using the principles of numerical differentiation.</p>
 <section id="rgb-to-grayscale-conversion">
 <h2>RGB to Grayscale Conversion<a class="headerlink" href="#rgb-to-grayscale-conversion" title="Link to this heading">#</a></h2>
-<p>Using the formula
-$<span class="math notranslate nohighlight">\(
+<p>Using the formula</p>
+<div class="math notranslate nohighlight">
+\[
 G = 0.3r + 0.59g + 0.11b
-\)</span>$</p>
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rgb2gray</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
@@ -427,6 +429,16 @@ G = 0.3r + 0.59g + 0.11b
 </section>
 <section id="first-derivative-approach">
 <h2>First Derivative approach<a class="headerlink" href="#first-derivative-approach" title="Link to this heading">#</a></h2>
+<p>The gradient of a 2D scalar matrix will give us the overall change in intensity around every point. If <span class="math notranslate nohighlight">\(G\)</span> represents our scalar matrix, the gradient at any point <span class="math notranslate nohighlight">\((i,j)\)</span> can be written as,</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla G \approx \biggl \langle \frac{G(x+1,y)-G(x-1,y)}{2} , \frac{G(x,y+1)-G(x,y-1)}{2}\biggl \rangle 
+\]</div>
+<p>We can also extend this to the second order approximation (which includes 2 neighbouring pixels).</p>
+<div class="math notranslate nohighlight">
+\[
+    f'(x) = \frac{8\left[f(x+1)-f(x-1)\right] - \left[f(x+2)-f(x-2)\right]}{12}
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nablaG</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -484,8 +496,6 @@ G = 0.3r + 0.59g + 0.11b
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">235</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">(</span><span class="n">grad4</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">),</span><span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gradient (after smoothing, $k=$&#39;</span><span class="o">+</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">, h=2)&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
     
-    <span class="c1"># plt.subplot(234),plt.imshow(hess,cmap = &#39;gray&#39;)</span>
-    <span class="c1"># plt.title(&#39;Hessian Matrix&#39;), plt.xticks([]), plt.yticks([])</span>
     <span class="n">edges</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data/</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">cv</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">),</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">236</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;OpenCV Edge Detection&#39;</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
@@ -531,6 +541,17 @@ G = 0.3r + 0.59g + 0.11b
 </section>
 <section id="second-derivative-approach">
 <h2>Second Derivative approach<a class="headerlink" href="#second-derivative-approach" title="Link to this heading">#</a></h2>
+<p>As we have seen in the previous section, the local maxima/minima in gradient values represent edge points. This means that at edge points, there will be a peak in the first derivative, and equivalently, there will be a zero crossing in the second derivative. Thus, edge points may be detected by finding the zero crossings of the second derivative of the image intensity.</p>
+<p>The simplest way to find the second derivate of a scalar matrix is to find its Laplacian. Using the Taylor series expansion mentioned earlier, we can calculate the second derivate of a function as</p>
+<div class="math notranslate nohighlight">
+\[
+    f''(x) = f(x+h)+f(x-h)-2f(x)
+\]</div>
+<p>Thus, the two-dimensional Laplacian will be,</p>
+<div class="math notranslate nohighlight">
+\[
+    \nabla^2 G(x,y) = \frac{1}{h^2}\left(G(x,y+1)+G(x,y-1)+G(x-1,y)+G(x-1,y)-4G(x,y)\right)
+\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">laplacian</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -570,14 +591,14 @@ G = 0.3r + 0.59g + 0.11b
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
 <span class="n">lap</span> <span class="o">=</span> <span class="n">laplacian</span><span class="p">(</span><span class="n">blur</span><span class="p">(</span><span class="s1">&#39;data/fruits.jpg&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">zero_crossings</span><span class="p">(</span><span class="n">lap</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
 <span class="n">lap</span> <span class="o">=</span> <span class="n">laplacian</span><span class="p">(</span><span class="n">blur</span><span class="p">(</span><span class="s1">&#39;data/cara.png&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">zero_crossings</span><span class="p">(</span><span class="n">lap</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;plots/1/edge2.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -621,12 +642,12 @@ G = 0.3r + 0.59g + 0.11b
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="home.html"
+       href="heating.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Applications of Numerical Calculus in Multidisciplinary Problems</p>
+        <p class="prev-next-title">Heating Adobe Houses</p>
       </div>
     </a>
     <a class="right-next"
