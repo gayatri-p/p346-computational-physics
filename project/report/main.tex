@@ -1,0 +1,26 @@
+\documentclass[a4paper, table]{article}
+\input{General/Preamble} 
+\input{General/Settings} 
+\begin{document}
+\pagenumbering{gobble}
+\input{Chapters/0. Frontpage}
+\input{Chapters/0. Abstract}
+\newpage
+
+% Generates a ToC without page number
+{\hypersetup{linkcolor=black}
+\tableofcontents\thispagestyle{empty}}
+\newpage
+\newpage
+
+% Creates the introduction, starting page numbering
+\pagenumbering{arabic}
+\input{Chapters/5. hunting}
+\input{Chapters/4. adobe}
+\input{Chapters/1. edge} 
+\input{Chapters/2. dam}
+\input{Chapters/3. galaxy}
+\newpage
+\nocite{*}
+\printbibliography
+\end{document}
